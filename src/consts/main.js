@@ -1,5 +1,5 @@
 import React from 'react';
-import {Dimensions} from 'react-native';
+import { Dimensions } from 'react-native';
 
 export const scrHeight = Dimensions.get('window').height;
 export const scrWidth = Dimensions.get('window').width;
@@ -22,7 +22,7 @@ export const cards = [
   'ghosts',
   'cats',
   'birds',
-  'unicorn',
+  'unicorn'
 ];
 export const backCard = 'treat';
 
@@ -30,7 +30,7 @@ export const game = {
   ready: 'ready',
   running: 'running',
   end: 'end',
-  new: 'new',
+  new: 'new'
 };
 
 export const delayFlipBackFirstCard = 5 * 1000;

@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {CardContainer, FlipCardContainer} from '../styles/componentStyles';
+import { CardContainer, FlipCardContainer } from '../styles/componentStyles';
 import Icon from './Icon';
-import {backCard} from '../consts/main';
-import {View, Text} from 'react-native';
+import { backCard } from '../consts/main';
+import { View } from 'react-native';
 
-const Card = ({card, handleCardClick}) => {
+const Card = ({ card, handleCardClick }) => {
   return (
     <CardContainer>
       <FlipCardContainer
@@ -16,7 +16,8 @@ const Card = ({card, handleCardClick}) => {
         flipVertical={false}
         useNativeDriver={true}
         flip={!card.isFlipped}
-        clickable={card.isClickable}>
+        clickable={card.isClickable}
+      >
         <View>
           <Icon name={card.imgPath} size={'100%'} />
         </View>
@@ -34,8 +35,8 @@ Card.propTypes = {
     isFlipped: PropTypes.bool,
     isClickable: PropTypes.bool,
     matchId: PropTypes.string,
-    handleCardClick: PropTypes.func,
-  }),
+    handleCardClick: PropTypes.func
+  })
 };
 
 export default Card;

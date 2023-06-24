@@ -1,25 +1,18 @@
 import React from 'react';
 import Card from '../components/Card';
 
-import {
-  game,
-  delayFlipBackFirstCard,
-  delayToFlipBackPairs,
-} from '../consts/main';
-import {shuffle, createBoard} from '../functs/main';
+import { game, delayFlipBackFirstCard, delayToFlipBackPairs } from '../consts/main';
+import { shuffle, createBoard } from '../functs/main';
 
-import {Board} from '../styles/containerStyles';
-import {Animated} from 'react-native';
+import { Board } from '../styles/containerStyles';
 
 const gameBoard = createBoard();
 
-const GameBoard = ({gameStatus, setGameStatus}) => {
+const GameBoard = ({ gameStatus, setGameStatus }) => {
   const [board, setBoard] = React.useState(shuffle(gameBoard));
   const [matchedPairs, setMatchedPairs] = React.useState(0);
   const [firstCard, setFirstCard] = React.useState(null);
   const timerIdFirstCard = React.useRef(0);
-
-  const rotateValue = new Animated.Value(0);
 
   React.useEffect(() => {
     if (matchedPairs === board.length / 2) setGameStatus(game.end);
@@ -33,30 +26,26 @@ const GameBoard = ({gameStatus, setGameStatus}) => {
     }
   }, [gameStatus]);
 
-  const handleCardClick = currentCard => {
+  const handleCardClick = (currentCard) => {
     setGameStatus(game.running);
 
     // переворачиваем карточку
-    setBoard(prev => {
-      return prev.map(card =>
-        card.id === currentCard.id
-          ? {...card, isFlipped: true, isClickable: false}
-          : card,
+    setBoard((prev) => {
+      return prev.map((card) =>
+        card.id === currentCard.id ? { ...card, isFlipped: true, isClickable: false } : card
       );
     });
 
     // переворачиваем первую карту
     if (firstCard === null) {
-      setFirstCard({...currentCard});
+      setFirstCard({ ...currentCard });
 
       // первая карта будет открыта 5 сек
       timerIdFirstCard.current = setTimeout(() => {
-        setBoard(prev =>
-          prev.map(card =>
-            card.id === currentCard.id
-              ? {...card, isFlipped: false, isClickable: true}
-              : card,
-          ),
+        setBoard((prev) =>
+          prev.map((card) =>
+            card.id === currentCard.id ? { ...card, isFlipped: false, isClickable: true } : card
+          )
         );
         setFirstCard(null);
       }, delayFlipBackFirstCard);
@@ -66,24 +55,24 @@ const GameBoard = ({gameStatus, setGameStatus}) => {
 
     // если карты совпали
     if (firstCard.matchId === currentCard.id) {
-      setMatchedPairs(prev => prev + 1);
-      setBoard(prev =>
-        prev.map(card =>
+      setMatchedPairs((prev) => prev + 1);
+      setBoard((prev) =>
+        prev.map((card) =>
           card.id === firstCard.id || card.id === currentCard.id
-            ? {...card, isClickable: false}
-            : card,
-        ),
+            ? { ...card, isClickable: false }
+            : card
+        )
       );
       setFirstCard(null);
     } else {
       // если карты не совпали - ждем 1 сек и закрываем
       setTimeout(() => {
-        setBoard(prev =>
-          prev.map(card =>
+        setBoard((prev) =>
+          prev.map((card) =>
             card.id === firstCard.id || card.id === currentCard.id
-              ? {...card, isFlipped: false, isClickable: true}
-              : card,
-          ),
+              ? { ...card, isFlipped: false, isClickable: true }
+              : card
+          )
         );
       }, delayToFlipBackPairs);
     }
@@ -93,7 +82,7 @@ const GameBoard = ({gameStatus, setGameStatus}) => {
 
   return (
     <Board>
-      {board.map(card => (
+      {board.map((card) => (
         <Card key={card.id} card={card} handleCardClick={handleCardClick} />
       ))}
     </Board>

@@ -1,10 +1,10 @@
 import { cards } from '../consts/main';
 
-export const shuffle = arr => {
+export const shuffle = (arr) => {
   return arr
-    .map(a => [Math.random(), a])
+    .map((a) => [Math.random(), a])
     .sort((a, b) => a[0] - b[0])
-    .map(a => a[1]);
+    .map((a) => a[1]);
 };
 
 export const createBoard = () =>
@@ -13,5 +13,5 @@ export const createBoard = () =>
     imgPath: card,
     isFlipped: false,
     isClickable: true,
-    matchId: i < cards.length ? `id${i + cards.length}` : `id${i - cards.length}`,
+    matchId: i < cards.length ? `id${i + cards.length}` : `id${i - cards.length}`
   }));

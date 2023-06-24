@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 import FlipCard from 'react-native-flip-card';
-import {scrWidth} from '../consts/main';
+import { scrWidth } from '../consts/main';
 
 export const CardContainer = styled.View`
   margin-bottom: 10px;

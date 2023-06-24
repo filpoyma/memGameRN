@@ -7,9 +7,8 @@ export const useInterval = (callback, isNewGame, isGameRunning, duration, delay)
   const handler = () => {
     callback(durationRef);
   };
-;
   React.useEffect(() => {
-    if(isNewGame) durationRef.current = 0;
+    if (isNewGame) durationRef.current = 0;
     const durationInterval = (isNewGame || isGameRunning) && setInterval(handler, delay);
     durationIntervalRef.current = durationInterval;
     return () => {

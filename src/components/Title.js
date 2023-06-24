@@ -3,7 +3,7 @@ import { Container } from '../styles/componentStyles';
 import { game } from '../consts/main';
 
 const Title = ({ gameStatus }) => {
-  const title = gameStatus => {
+  const title = (gameStatus) => {
     switch (gameStatus) {
       case game.ready:
       case game.new:

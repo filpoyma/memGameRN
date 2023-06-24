@@ -37,7 +37,7 @@ const Icons = {
   ghosts,
   cats,
   birds,
-  unicorn,
+  unicorn
 };
 
 export default Icons;
