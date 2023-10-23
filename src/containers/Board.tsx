@@ -5,13 +5,15 @@ import { game, delayFlipBackFirstCard, delayToFlipBackPairs } from '../consts/ma
 import { shuffle, createBoard } from '../functs/main';
 
 import { Board } from '../styles/containerStyles';
+import { IGameProps } from '../components/interfaces';
+import { IGameBoardCard } from '../components/interfaces';
 
 const gameBoard = createBoard();
 
-const GameBoard = ({ gameStatus, setGameStatus }) => {
-  const [board, setBoard] = React.useState(shuffle(gameBoard));
-  const [matchedPairs, setMatchedPairs] = React.useState(0);
-  const [firstCard, setFirstCard] = React.useState(null);
+const GameBoard = ({ gameStatus, setGameStatus }: IGameProps) => {
+  const [board, setBoard] = React.useState<IGameBoardCard[]>(shuffle(gameBoard));
+  const [matchedPairs, setMatchedPairs] = React.useState<number>(0);
+  const [firstCard, setFirstCard] = React.useState<null | IGameBoardCard>(null);
   const timerIdFirstCard = React.useRef(0);
 
   React.useEffect(() => {
@@ -26,7 +28,7 @@ const GameBoard = ({ gameStatus, setGameStatus }) => {
     }
   }, [gameStatus]);
 
-  const handleCardClick = (currentCard) => {
+  const handleCardClick = (currentCard: IGameBoardCard) => {
     setGameStatus(game.running);
 
     // переворачиваем карточку

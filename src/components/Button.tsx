@@ -2,8 +2,9 @@ import React from 'react';
 import { Text } from 'react-native';
 import { Btn, BtnContainer } from '../styles/componentStyles';
 import { game } from '../consts/main';
+import { IButtonProps } from "./interfaces";
 
-const Button = ({ setGameStatus }) => {
+const Button = ({ setGameStatus } : IButtonProps) => {
   return (
     <BtnContainer>
       <Btn
@@ -11,7 +12,7 @@ const Button = ({ setGameStatus }) => {
           setGameStatus(game.new);
         }}
       >
-        <Text>НОВАЯ ИГРА</Text>
+        <Text>NEW GAME</Text>
       </Btn>
     </BtnContainer>
   );

@@ -1,3 +1,4 @@
+import React from 'react';
 import treat from './treat-icon.svg';
 import dolphin from './dolphin-icon.svg';
 import bear from './bear-icon.svg';
@@ -17,8 +18,13 @@ import skull from './skull-icon.svg';
 import tiger from './tiger-icon.svg';
 import unicorn from './unicorn-icon.svg';
 import wolf from './wolf-icon.svg';
+import { SvgProps } from 'react-native-svg';
 
-const Icons = {
+interface IIcons {
+  [index: string]: React.FC<SvgProps>;
+}
+
+const Icons: IIcons = {
   treat,
   dolphin,
   bunny,

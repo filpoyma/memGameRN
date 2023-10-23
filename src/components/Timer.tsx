@@ -1,9 +1,10 @@
 import React from 'react';
 import { game } from '../consts/main';
 import { useInterval } from '../hooks/timer';
-import { Container } from '../styles/componentStyles';
+import { Text } from 'react-native';
+import { IGameStatusProps } from './interfaces';
 
-const Timer = ({ gameStatus }) => {
+const Timer = ({ gameStatus }: IGameStatusProps) => {
   const isNewGame = gameStatus === game.new;
   const isGameRunning = gameStatus === game.running;
 
@@ -28,9 +29,7 @@ const Timer = ({ gameStatus }) => {
   const min = duration / 60;
   const sec = duration % 60;
 
-  return (
-    <Container>{Math.floor(min) + ' : ' + (sec ? (sec < 10 ? '0' + sec : sec) : '00')}</Container>
-  );
+  return <Text>{Math.floor(min) + ' : ' + (sec ? (sec < 10 ? '0' + sec : sec) : '00')}</Text>;
 };
 
 export default Timer;

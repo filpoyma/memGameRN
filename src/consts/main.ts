@@ -1,4 +1,3 @@
-import React from 'react';
 import { Dimensions } from 'react-native';
 
 export const scrHeight = Dimensions.get('window').height;
@@ -24,7 +23,7 @@ export const cards = [
   'birds',
   'unicorn'
 ];
-export const backCard = 'treat';
+export const backCard: string = 'treat';
 
 export const game = {
   ready: 'ready',

@@ -1,12 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import { CardContainer, FlipCardContainer } from '../styles/componentStyles';
 import Icon from './Icon';
 import { backCard } from '../consts/main';
 import { View } from 'react-native';
+import { ICardProps } from './interfaces';
 
-const Card = ({ card, handleCardClick }) => {
+const Card = ({ card, handleCardClick }: ICardProps) => {
   return (
     <CardContainer>
       <FlipCardContainer
@@ -21,22 +21,17 @@ const Card = ({ card, handleCardClick }) => {
         <View>
           <Icon name={card.imgPath} size={'100%'} />
         </View>
-        <View onStartShouldSetResponder={() => handleCardClick(card)}>
+        <View
+          onResponderRelease={() => {
+            handleCardClick(card);
+          }}
+          onStartShouldSetResponder={() => true}
+        >
           <Icon name={backCard} size={'100%'} />
         </View>
       </FlipCardContainer>
     </CardContainer>
   );
-};
-
-Card.propTypes = {
-  card: PropTypes.shape({
-    id: PropTypes.string,
-    isFlipped: PropTypes.bool,
-    isClickable: PropTypes.bool,
-    matchId: PropTypes.string,
-    handleCardClick: PropTypes.func
-  })
 };
 
 export default Card;

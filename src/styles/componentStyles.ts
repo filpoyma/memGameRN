@@ -5,8 +5,6 @@ import { scrWidth } from '../consts/main';
 export const CardContainer = styled.View`
   margin-bottom: 10px;
   margin-horizontal: 4px;
-  //border-radius: 8px;
-  //background-color: lightgray;
   justify-content: center;
   align-items: center;
   width: 14%;
@@ -39,5 +37,5 @@ export const BtnContainer = styled.View`
 
 export const Container = styled.Text`
   text-align: center;
-  margin: 20px;
+  margin: 10px;
 `;
