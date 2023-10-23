@@ -11,7 +11,7 @@ const Button = ({ setGameStatus }) => {
           setGameStatus(game.new);
         }}
       >
-        <Text>НОВАЯ ИГРА</Text>
+        <Text>NEW GAME</Text>
       </Btn>
     </BtnContainer>
   );
