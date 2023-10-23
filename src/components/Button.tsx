@@ -2,8 +2,9 @@ import React from 'react';
 import { Text } from 'react-native';
 import { Btn, BtnContainer } from '../styles/componentStyles';
 import { game } from '../consts/main';
+import { IButtonProps } from "./interfaces";
 
-const Button = ({ setGameStatus }) => {
+const Button = ({ setGameStatus } : IButtonProps) => {
   return (
     <BtnContainer>
       <Btn

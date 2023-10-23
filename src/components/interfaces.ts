@@ -24,3 +24,7 @@ export interface IIconProps {
   name: string;
   size: string;
 }
+
+export interface IButtonProps {
+  setGameStatus: (name: string) => void
+}
