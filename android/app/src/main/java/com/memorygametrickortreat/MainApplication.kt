@@ -1,4 +1,4 @@
-package com.memorygame
+package com.memorygametrickortreat
 
 import android.app.Application
 import com.facebook.react.PackageList
