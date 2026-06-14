@@ -1,97 +1,165 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+<p align="center">
+  <img src="assets/bootsplash/logo@3x.png" alt="MemGame logo" width="160" />
+</p>
 
-# Getting Started
+<h1 align="center">MemGame</h1>
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+<p align="center">
+  <strong>Мобильная игра «Память» в тематике Trick or Treat</strong><br />
+  Найди все пары карточек с животными — быстрее и с меньшим числом ошибок!
+</p>
 
-## Step 1: Start Metro
+<p align="center">
+  <img src="src/img/trickortreat.png" alt="Trick or Treat" width="320" />
+</p>
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+<p align="center">
+  <img src="https://img.shields.io/badge/React%20Native-0.79-61DAFB?logo=react&logoColor=white" alt="React Native" />
+  <img src="https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white" alt="React" />
+  <img src="https://img.shields.io/badge/TypeScript-5.0-3178C6?logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Platform-iOS%20%7C%20Android-lightgrey" alt="Platform" />
+</p>
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+---
+
+## О игре
+
+**MemGame** — классическая игра на память для iOS и Android. На поле 36 карточек (18 пар) с забавными иконками животных и Halloween-элементами. Переворачивай карты, запоминай расположение и собирай пары.
+
+| | |
+|---|---|
+| **Поле** | 6 × 6 карточек |
+| **Пары** | 18 уникальных изображений |
+| **Старт** | Нажми любую карту |
+| **Таймер** | Отсчёт времени с первого хода |
+| **Перезапуск** | Кнопка **NEW GAME** |
+
+### Как играть
+
+1. Нажми любую карту — игра начнётся, запустится таймер.
+2. Первая открытая карта остаётся видимой **5 секунд**, затем переворачивается обратно.
+3. Открой вторую карту — если пара совпала, карты остаются открытыми.
+4. Если не совпала — через **1 секунду** обе карты закроются.
+5. Собери все 18 пар — на экране появится итоговое время.
+
+---
+
+## Превью
+
+> В репозитории нет скриншотов симулятора, поэтому ниже — визуальные материалы из самого приложения: иконка, заставка и карточки.
+
+<p align="center">
+  <img src="android/app/src/main/play_store_512.png" alt="Иконка приложения" width="140" />
+  &nbsp;&nbsp;&nbsp;
+  <img src="assets/treat-icon.png" alt="Рубашка карты" width="140" />
+</p>
+
+<p align="center">
+  <em>Слева — иконка приложения · Справа — рубашка карты (Treat)</em>
+</p>
+
+### Карточки в игре
+
+<table align="center">
+  <tr>
+    <td align="center"><img src="src/img/bunny-icon.svg" width="64" alt="Bunny" /><br /><sub>Bunny</sub></td>
+    <td align="center"><img src="src/img/cow-icon.svg" width="64" alt="Cow" /><br /><sub>Cow</sub></td>
+    <td align="center"><img src="src/img/tiger-icon.svg" width="64" alt="Tiger" /><br /><sub>Tiger</sub></td>
+    <td align="center"><img src="src/img/unicorn-icon.svg" width="64" alt="Unicorn" /><br /><sub>Unicorn</sub></td>
+    <td align="center"><img src="src/img/ghosts-icon.svg" width="64" alt="Ghosts" /><br /><sub>Ghosts</sub></td>
+    <td align="center"><img src="src/img/skull-icon.svg" width="64" alt="Skull" /><br /><sub>Skull</sub></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="src/img/dolphin-icon.svg" width="64" alt="Dolphin" /><br /><sub>Dolphin</sub></td>
+    <td align="center"><img src="src/img/elephant-icon.svg" width="64" alt="Elephant" /><br /><sub>Elephant</sub></td>
+    <td align="center"><img src="src/img/bear-icon.svg" width="64" alt="Bear" /><br /><sub>Bear</sub></td>
+    <td align="center"><img src="src/img/shark-icon.svg" width="64" alt="Shark" /><br /><sub>Shark</sub></td>
+    <td align="center"><img src="src/img/owls-icon.svg" width="64" alt="Owls" /><br /><sub>Owls</sub></td>
+    <td align="center"><img src="src/img/cats-icon.svg" width="64" alt="Cats" /><br /><sub>Cats</sub></td>
+  </tr>
+</table>
+
+<p align="center">
+  <em>И ещё 6 пар: rabbit, bull, wolf, moose, pig, birds</em>
+</p>
+
+---
+
+## Стек технологий
+
+| Категория | Библиотеки |
+|-----------|------------|
+| UI | React Native, styled-components |
+| Анимации | react-native-flip-card |
+| Графика | react-native-svg |
+| Запуск | react-native-bootsplash |
+| Язык | TypeScript |
+
+---
+
+## Быстрый старт
+
+### Требования
+
+- Node.js ≥ 18
+- [Настроенное окружение React Native](https://reactnative.dev/docs/set-up-your-environment)
+- Xcode (iOS) / Android Studio (Android)
+
+### Установка
 
 ```sh
-# Using npm
-npm start
-
-# OR using Yarn
-yarn start
+npm install
 ```
 
-## Step 2: Build and run your app
-
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
-
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
-```
-
-### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+### iOS — CocoaPods (первый запуск)
 
 ```sh
 bundle install
+bundle exec pod install --project-directory=ios
 ```
 
-Then, and every time you update your native dependencies, run:
+### Запуск
 
 ```sh
-bundle exec pod install
-```
+# Metro
+npm start
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+# Android
+npm run android
 
-```sh
-# Using npm
+# iOS
 npm run ios
-
-# OR using Yarn
-yarn ios
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+### Сборка релиза (Android)
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+```sh
+npm run android:apk   # APK
+npm run android:aab   # AAB для Google Play
+```
 
-## Step 3: Modify your app
+---
 
-Now that you have successfully run the app, let's make changes!
+## Структура проекта
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+```
+memorygame/
+├── App.tsx                 # Точка входа
+├── src/
+│   ├── components/         # Card, Timer, Button, Icon…
+│   ├── containers/         # Game, Board
+│   ├── consts/             # Константы игры
+│   ├── functs/             # Логика доски и перемешивания
+│   ├── hooks/              # Таймер
+│   ├── img/                # SVG-иконки карточек
+│   └── styles/             # styled-components
+├── android/
+├── ios/
+└── assets/                 # Boot splash, иконки
+```
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+---
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
 
-## Congratulations! :tada:
 
-You've successfully run and modified your React Native App. :partying_face:
 
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
